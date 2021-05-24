@@ -28,4 +28,32 @@ public class PasswordValidatorTest {
         passwordValidator = new PasswordValidator("MaxMustermannErikaMustermann");
         assertFalse(passwordValidator.checkLength());
     }
+
+    @Test
+    @DisplayName("Password has no upper case letter")
+    void checkUpperCase_Scenario1() {
+        passwordValidator = new PasswordValidator("maxmustermann");
+        assertFalse(passwordValidator.checkUpperCase());
+    }
+
+    @Test
+    @DisplayName("Password has upper case letter")
+    void checkUpperCase_Scenario2() {
+        passwordValidator = new PasswordValidator("MaxMustermann");
+        assertTrue(passwordValidator.checkUpperCase());
+    }
+
+    @Test
+    @DisplayName("Password has no lower case letter")
+    void checkLowerCase_Scenario1() {
+        passwordValidator = new PasswordValidator("MAXMUSTERMANN");
+        assertFalse(passwordValidator.checkLowerCase());
+    }
+
+    @Test
+    @DisplayName("Password has lower case letter")
+    void checkLowerCase_Scenario2() {
+        passwordValidator = new PasswordValidator("MaxMustermann");
+        assertTrue(passwordValidator.checkLowerCase());
+    }
 }
