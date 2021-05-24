@@ -8,6 +8,6 @@ public class PasswordValidator {
     }
 
     public boolean checkLength() {
-        return false;
+        return password.length() >= 8 && password.length() <= 25;
     }
 }
