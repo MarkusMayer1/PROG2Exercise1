@@ -56,4 +56,18 @@ public class PasswordValidatorTest {
         passwordValidator = new PasswordValidator("MaxMustermann");
         assertTrue(passwordValidator.checkLowerCase());
     }
+
+    @Test
+    @DisplayName("Password has no number")
+    void checkNumber_Scenario1() {
+        passwordValidator = new PasswordValidator("MaxMustermann");
+        assertFalse(passwordValidator.checkNumber());
+    }
+
+    @Test
+    @DisplayName("Password has number")
+    void checkNumber_Scenario2() {
+        passwordValidator = new PasswordValidator("MaxMustermann5");
+        assertTrue(passwordValidator.checkNumber());
+    }
 }

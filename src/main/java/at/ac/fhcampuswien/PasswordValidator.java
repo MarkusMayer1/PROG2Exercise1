@@ -20,4 +20,8 @@ public class PasswordValidator {
     public boolean checkUpperCase() {
         return Pattern.compile("[A-Z]").matcher(password).find();
     }
+
+    public boolean checkNumber() {
+        return false;
+    }
 }
