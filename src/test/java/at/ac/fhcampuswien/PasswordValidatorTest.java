@@ -70,4 +70,123 @@ public class PasswordValidatorTest {
         passwordValidator = new PasswordValidator("MaxMustermann5");
         assertTrue(passwordValidator.checkNumber());
     }
+
+    @Test
+    @DisplayName("Password has no special character")
+    void checkSpecialCharacter_Scenario1() {
+        passwordValidator = new PasswordValidator("MaxMustermann");
+        assertFalse(passwordValidator.checkSpecialCharacter());
+    }
+
+    @Test
+    @DisplayName("Password has allowed special character (")
+    void checkSpecialCharacter_Scenario2() {
+        passwordValidator = new PasswordValidator("MaxMustermann(");
+        assertTrue(passwordValidator.checkSpecialCharacter());
+    }
+
+    @Test
+    @DisplayName("Password has allowed special character )")
+    void checkSpecialCharacter_Scenario3() {
+        passwordValidator = new PasswordValidator("MaxMusterman)n");
+        assertTrue(passwordValidator.checkSpecialCharacter());
+    }
+
+    @Test
+    @DisplayName("Password has allowed special character #")
+    void checkSpecialCharacter_Scenario4() {
+        passwordValidator = new PasswordValidator("MaxMusterma#nn");
+        assertTrue(passwordValidator.checkSpecialCharacter());
+    }
+
+    @Test
+    @DisplayName("Password has allowed special character $")
+    void checkSpecialCharacter_Scenario5() {
+        passwordValidator = new PasswordValidator("MaxMusterm$ann");
+        assertTrue(passwordValidator.checkSpecialCharacter());
+    }
+
+    @Test
+    @DisplayName("Password has allowed special character ?")
+    void checkSpecialCharacter_Scenario6() {
+        passwordValidator = new PasswordValidator("MaxMuster?mann");
+        assertTrue(passwordValidator.checkSpecialCharacter());
+    }
+
+    @Test
+    @DisplayName("Password has allowed special character %")
+    void checkSpecialCharacter_Scenario7() {
+        passwordValidator = new PasswordValidator("MaxMuster%mann");
+        assertTrue(passwordValidator.checkSpecialCharacter());
+    }
+
+    @Test
+    @DisplayName("Password has allowed special character /")
+    void checkSpecialCharacter_Scenario8() {
+        passwordValidator = new PasswordValidator("MaxMuste/rmann");
+        assertTrue(passwordValidator.checkSpecialCharacter());
+    }
+
+    @Test
+    @DisplayName("Password has allowed special character @")
+    void checkSpecialCharacter_Scenario9() {
+        passwordValidator = new PasswordValidator("@MaxMustermann");
+        assertTrue(passwordValidator.checkSpecialCharacter());
+    }
+
+    @Test
+    @DisplayName("Password has not allowed special character |")
+    void checkSpecialCharacter_Scenario10() {
+        passwordValidator = new PasswordValidator("Max|Mustermann");
+        assertFalse(passwordValidator.checkSpecialCharacter());
+    }
+
+    @Test
+    @DisplayName("Password has not allowed special character *")
+    void checkSpecialCharacter_Scenario11() {
+        passwordValidator = new PasswordValidator("MaxMustermann*");
+        assertFalse(passwordValidator.checkSpecialCharacter());
+    }
+
+    @Test
+    @DisplayName("Password has not allowed special character +")
+    void checkSpecialCharacter_Scenario12() {
+        passwordValidator = new PasswordValidator("Ma+xMustermann");
+        assertFalse(passwordValidator.checkSpecialCharacter());
+    }
+
+    @Test
+    @DisplayName("Password has not allowed special character -")
+    void checkSpecialCharacter_Scenario13() {
+        passwordValidator = new PasswordValidator("MaxMuster-mann");
+        assertFalse(passwordValidator.checkSpecialCharacter());
+    }
+
+    @Test
+    @DisplayName("Password has not allowed special character .")
+    void checkSpecialCharacter_Scenario14() {
+        passwordValidator = new PasswordValidator("MaxMu.stermann");
+        assertFalse(passwordValidator.checkSpecialCharacter());
+    }
+
+    @Test
+    @DisplayName("Password has not allowed special character ,")
+    void checkSpecialCharacter_Scenario15() {
+        passwordValidator = new PasswordValidator("MaxMust,ermann");
+        assertFalse(passwordValidator.checkSpecialCharacter());
+    }
+
+    @Test
+    @DisplayName("Password has allowed and not allowed special characters :)")
+    void checkSpecialCharacter_Scenario16() {
+        passwordValidator = new PasswordValidator("MaxMustermann:)");
+        assertFalse(passwordValidator.checkSpecialCharacter());
+    }
+
+    @Test
+    @DisplayName("Password has allowed and not allowed special characters (@-->)")
+    void checkSpecialCharacter_Scenario17() {
+        passwordValidator = new PasswordValidator("(@Max-Must-ermann>)");
+        assertFalse(passwordValidator.checkSpecialCharacter());
+    }
 }

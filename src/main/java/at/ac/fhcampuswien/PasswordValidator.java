@@ -24,4 +24,8 @@ public class PasswordValidator {
     public boolean checkNumber() {
         return Pattern.compile("[0-9]").matcher(password).find();
     }
+
+    public boolean checkSpecialCharacter() {
+        return false;
+    }
 }
