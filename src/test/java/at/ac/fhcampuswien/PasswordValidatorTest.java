@@ -189,4 +189,18 @@ public class PasswordValidatorTest {
         passwordValidator = new PasswordValidator("(@Max-Must-ermann>)");
         assertFalse(passwordValidator.checkSpecialCharacter());
     }
+
+    @Test
+    @DisplayName("Password has not more than two consecutive numbers")
+    void checkConsecutiveNumbers_Scenario1() {
+        passwordValidator = new PasswordValidator("Max56Mustermann");
+        assertTrue(passwordValidator.checkConsecutiveNumbers());
+    }
+
+    @Test
+    @DisplayName("Password has more than two consecutive numbers")
+    void checkConsecutiveNumbers_Scenario2() {
+        passwordValidator = new PasswordValidator("Max567Mustermann");
+        assertFalse(passwordValidator.checkConsecutiveNumbers());
+    }
 }

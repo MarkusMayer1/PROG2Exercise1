@@ -29,4 +29,8 @@ public class PasswordValidator {
         if (!password.replaceAll("[a-zA-Z0-9()#$?!%/@]", "").equals("")) return false;
         return Pattern.compile("[()#$?!%/@]").matcher(password).find();
     }
+
+    public boolean checkConsecutiveNumbers() {
+        return false;
+    }
 }
