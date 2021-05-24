@@ -6,4 +6,8 @@ public class PasswordValidator {
     public PasswordValidator(String password) {
         this.password = password;
     }
+
+    public boolean checkLength() {
+        return false;
+    }
 }
