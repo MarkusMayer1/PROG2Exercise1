@@ -33,4 +33,8 @@ public class PasswordValidator {
     public boolean checkConsecutiveNumbers() {
         return !Pattern.compile("(012|123|234|345|456|567|789)").matcher(password).find();
     }
+
+    public boolean checkSameNumbersInARow() {
+        return false;
+    }
 }

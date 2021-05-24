@@ -203,4 +203,18 @@ public class PasswordValidatorTest {
         passwordValidator = new PasswordValidator("Max567Mustermann");
         assertFalse(passwordValidator.checkConsecutiveNumbers());
     }
+
+    @Test
+    @DisplayName("Password does not have the same number more than three times in a row")
+    void checkSameNumbersInARow_Scenario1() {
+        passwordValidator = new PasswordValidator("Max555Mustermann");
+        assertTrue(passwordValidator.checkSameNumbersInARow());
+    }
+
+    @Test
+    @DisplayName("Password has the same number more than three times in a row")
+    void checkSameNumbersInARow_Scenario2() {
+        passwordValidator = new PasswordValidator("Max5555Mustermann");
+        assertFalse(passwordValidator.checkSameNumbersInARow());
+    }
 }
