@@ -1,5 +1,7 @@
 package at.ac.fhcampuswien;
 
+import java.util.regex.Pattern;
+
 public class PasswordValidator {
     private String password;
 
@@ -12,10 +14,10 @@ public class PasswordValidator {
     }
 
     public boolean checkLowerCase() {
-        return false;
+        return Pattern.compile("[a-z]").matcher(password).find();
     }
 
     public boolean checkUpperCase() {
-        return false;
+        return Pattern.compile("[A-Z]").matcher(password).find();
     }
 }
