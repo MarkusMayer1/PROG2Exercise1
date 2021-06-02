@@ -3,6 +3,11 @@ package at.ac.fhcampuswien;
 import java.util.regex.Pattern;
 
 public class PasswordValidator {
+    public boolean checkPassword(String password) {
+        return checkLength(password) && checkLowerCase(password) && checkUpperCase(password) && checkNumber(password) &&
+                checkSpecialCharacter(password) && checkConsecutiveNumbers(password) && checkSameNumbersInARow(password);
+    }
+
     public boolean checkLength(String password) {
         return password.length() >= 8 && password.length() <= 25;
     }
